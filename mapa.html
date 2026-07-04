@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mapa FioStudio</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  body { margin:0; font-family: Georgia, serif; background:#FFF8F6; }
+  #map { height: 600px; width: 100%; }
+  .title { padding: 12px; text-align:center; color:#403838; }
+</style>
+</head>
+<body>
+<div class="title"><h2>Ubicación referencial de FioStudio - Lima, Perú</h2></div>
+<div id="map"></div>
+<script>
+var map = L.map('map').setView([-11.972, -77.074], 13);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+L.marker([-11.972, -77.074]).addTo(map)
+    .bindPopup("<b>FioStudio</b><br>Zona referencial: Los Olivos, Lima.")
+    .openPopup();
+</script>
+</body>
+</html>
